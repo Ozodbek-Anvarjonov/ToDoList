@@ -11,4 +11,11 @@
     <ProjectReference Include="..\ToDoList.Infrastructure\ToDoList.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Configurations\" />
+    <Folder Include="Models\Dtos\" />
+    <Folder Include="Mappers\" />
+  </ItemGroup>
+
 </Project>
