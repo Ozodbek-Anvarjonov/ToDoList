@@ -26,6 +26,16 @@ public abstract class EntityRepositoryBase<TEntity, TContext>
         return initialQuery;
     }
 
+    protected async ValueTask<IList<TEntity>> GetAllAsync(bool asNoTracking = false, CancellationToken cancellationToken = default)
+    {
+        var initialQuery = DbContext.Set<TEntity>().Where(entity => true);
+
+        if (asNoTracking)
+            initialQuery = initialQuery.AsNoTracking();
+
+        return await initialQuery.ToListAsync();
+    }
+
     protected async ValueTask<TEntity?> GetByIdAsync(Guid id, bool asNoTracking = false, CancellationToken cancellationToken = default)
     {
         var initialQuery = DbContext.Set<TEntity>().Where(entity => true);
